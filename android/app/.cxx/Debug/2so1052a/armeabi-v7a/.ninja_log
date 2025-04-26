@@ -1,0 +1,11 @@
+# ninja log v5
+0	65	0	/Users/vadivel/Sites/react-native/cmt/android/app/.cxx/Debug/2so1052a/armeabi-v7a/CMakeFiles/cmake.verify_globs	9081da94f101c0d4
+6	3651	1745636942227957036	CMakeFiles/appmodules.dir/Users/vadivel/Sites/react-native/cmt/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	6355ea44cb2582ca
+0	9	0	clean	76bd3a432c5e932
+6	3964	1745636942538362701	CMakeFiles/appmodules.dir/OnLoad.cpp.o	4e1a856f835f5284
+30	225	1745637125295094197	build.ninja	65d9a85553de0e3a
+3964	4113	1745636942693332211	/Users/vadivel/Sites/react-native/cmt/android/app/build/intermediates/cxx/Debug/2so1052a/obj/armeabi-v7a/libappmodules.so	dbb5fdfdeede395a
+0	27	0	/Users/vadivel/Sites/react-native/cmt/android/app/.cxx/Debug/2so1052a/armeabi-v7a/CMakeFiles/cmake.verify_globs	9081da94f101c0d4
+5	2654	1745637127997593375	CMakeFiles/appmodules.dir/Users/vadivel/Sites/react-native/cmt/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	6355ea44cb2582ca
+4	2968	1745637128310252533	CMakeFiles/appmodules.dir/OnLoad.cpp.o	4e1a856f835f5284
+2968	3117	1745637128464625606	/Users/vadivel/Sites/react-native/cmt/android/app/build/intermediates/cxx/Debug/2so1052a/obj/armeabi-v7a/libappmodules.so	dbb5fdfdeede395a

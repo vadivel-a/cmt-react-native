@@ -1,0 +1,5 @@
+# ninja log v5
+0	27	0	/Users/vadivel/Sites/react-native/cmt/android/app/.cxx/RelWithDebInfo/162t6013/arm64-v8a/CMakeFiles/cmake.verify_globs	7c4f5ac693935bf0
+0	3177	1745638097261550920	CMakeFiles/appmodules.dir/Users/vadivel/Sites/react-native/cmt/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	21240ba165332934
+0	3624	1745638097710577892	CMakeFiles/appmodules.dir/OnLoad.cpp.o	4e0e7f362a5435f6
+3625	3735	1745638097827794882	/Users/vadivel/Sites/react-native/cmt/android/app/build/intermediates/cxx/RelWithDebInfo/162t6013/obj/arm64-v8a/libappmodules.so	bdc53ddeaad74244
