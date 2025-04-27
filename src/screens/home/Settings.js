@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import {COLORS, ROUTES} from '../../constants';
-import Button from '../../styles/Button';
+import {ButtonStyles} from '../../styles';
 
 const Settings = ({navigation}) => {
   return (
@@ -16,16 +16,16 @@ const Settings = ({navigation}) => {
 
       <TouchableOpacity
         onPress={() => navigation.navigate(ROUTES.SETTINGS_DETAIL)}
-        style={Button.primary}
+        style={ButtonStyles.primary}
         activeOpacity={0.8}>
-        <Text style={Button.primaryText}>Go To Settings Detail</Text>
+        <Text style={ButtonStyles.primaryText}>Go To Settings Detail</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         onPress={() => navigation.navigate(ROUTES.LOGIN)}
-        style={Button.primary}
+        style={ButtonStyles.primary}
         activeOpacity={0.8}>
-        <Text style={Button.primaryText}>Log out</Text>
+        <Text style={ButtonStyles.primaryText}>Log out</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
