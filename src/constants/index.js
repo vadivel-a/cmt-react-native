@@ -1,5 +1,5 @@
 import ROUTES from './routes';
+import IMGS from './imgs';
 import COLORS from './colors';
-import IMAGES from './images';
 
-export {ROUTES, COLORS, IMAGES};
+export {ROUTES, IMGS, COLORS};

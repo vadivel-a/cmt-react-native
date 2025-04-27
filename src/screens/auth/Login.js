@@ -11,7 +11,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import {COLORS, ROUTES} from '../../constants';
 import Logo from '../../assets/icons/LOGO.svg';
 import {useNavigation} from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 const Login = props => {
   // const {navigation} = props;
@@ -23,7 +22,6 @@ const Login = props => {
         <View style={styles.wFull}>
           <View style={styles.row}>
             <Logo width={55} height={55} style={styles.mr7} />
-            <Icon name="md-menu" size={30} color="#900" />
             <Text style={styles.brandName}>Olors</Text>
           </View>
 

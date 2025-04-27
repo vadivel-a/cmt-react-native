@@ -45,6 +45,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/Users/vadivel/Sites/react-native/cmt-react-native/android/app/.cxx/Debug/3i622r3f/arm64-v8a/rngesturehandler_codegen_autolinked_build/cmake_install.cmake")
+  include("/Users/vadivel/Sites/react-native/cmt-react-native/android/app/.cxx/Debug/3i622r3f/arm64-v8a/rnreanimated_autolinked_build/cmake_install.cmake")
   include("/Users/vadivel/Sites/react-native/cmt-react-native/android/app/.cxx/Debug/3i622r3f/arm64-v8a/safeareacontext_autolinked_build/cmake_install.cmake")
   include("/Users/vadivel/Sites/react-native/cmt-react-native/android/app/.cxx/Debug/3i622r3f/arm64-v8a/rnscreens_autolinked_build/cmake_install.cmake")
   include("/Users/vadivel/Sites/react-native/cmt-react-native/android/app/.cxx/Debug/3i622r3f/arm64-v8a/rnsvg_autolinked_build/cmake_install.cmake")
