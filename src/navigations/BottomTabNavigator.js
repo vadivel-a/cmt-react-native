@@ -76,7 +76,7 @@ function BottomTabNavigator() {
             return (
               <TouchableOpacity onPress={() => navigation.openDrawer()}>
                 <Icon
-                  name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'}
+                  name={Platform.OS === 'ios' ? 'ios-menu' : 'menu'}
                   size={30}
                   color={COLORS.dark}
                   style={{marginRight: 10}}

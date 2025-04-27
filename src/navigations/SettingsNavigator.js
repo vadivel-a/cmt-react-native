@@ -12,7 +12,7 @@ function SettingsNavigator() {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName={ROUTES.LOGIN}>
+      initialRouteName={ROUTES.SETTINGS}>
       <Stack.Screen name={ROUTES.SETTINGS} component={Settings} />
       <Stack.Screen name={ROUTES.SETTINGS_DETAIL} component={SettingsDetail} />
     </Stack.Navigator>
