@@ -17,7 +17,7 @@ function DrawerNavigator() {
         drawerActiveBackgroundColor: COLORS.primary,
         drawerActiveTintColor: COLORS.white,
         drawerLabelStyle: {
-          marginLeft: -20,
+          marginLeft: 0,
         },
       }}>
       <Drawer.Screen

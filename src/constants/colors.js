@@ -1,9 +1,9 @@
 export default {
   gradientForm: '#A376F1',
-  primary: '#7d5fff',
+  primary: '#f96e2b',
   white: '#FFFFFF',
   dark: '#444',
-  bgColor: '#82ccdd',
+  bgColor: '#f7f4f4',
   warning: '#f0d500',
   danger: '#FF0D0E',
   gray: '#666666',
