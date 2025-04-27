@@ -1,1 +1,0 @@
-/Users/vadivel/Sites/react-native/cmt/android/app/build/intermediates/cxx/Debug/2so1052a/obj/arm64-v8a

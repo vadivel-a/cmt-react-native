@@ -1,3 +1,0 @@
-/Users/vadivel/Sites/react-native/cmt/android/app/.cxx/RelWithDebInfo/162t6013/x86_64/CMakeFiles/appmodules.dir
-/Users/vadivel/Sites/react-native/cmt/android/app/.cxx/RelWithDebInfo/162t6013/x86_64/CMakeFiles/edit_cache.dir
-/Users/vadivel/Sites/react-native/cmt/android/app/.cxx/RelWithDebInfo/162t6013/x86_64/CMakeFiles/rebuild_cache.dir
