@@ -1,4 +1,5 @@
 export default {
+  ONBOARDING: 'On Boarding',
   LOGIN: 'Login',
   REGISTER: 'Register',
   FORGOT_PASSWORD: 'Forgot Password',

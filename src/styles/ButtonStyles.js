@@ -25,4 +25,21 @@ export default StyleSheet.create({
     textAlign: 'center',
     textTransform: 'uppercase', // Material buttons usually uppercase
   },
+  primaryCircle: {
+    backgroundColor: COLORS.primary,
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 30,
+    marginBottom: 20,
+    elevation: 5,  // Add shadow effect for button
+    shadowColor: COLORS.primary,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+  },
+  primaryCircleText: {
+    color: COLORS.white,
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
 });
