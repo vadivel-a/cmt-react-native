@@ -15,7 +15,6 @@ export default StyleSheet.create({
     shadowRadius: 3.84,
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%', // full width (you can override if needed)
   },
   primaryText: {
     color: COLORS.white,

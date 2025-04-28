@@ -4,34 +4,48 @@ import { COLORS, ROUTES } from '../../constants';
 import Logo from '../../assets/icons/logo.svg';
 import { useNavigation } from '@react-navigation/native';
 import { ButtonStyles, InputStyles, GlobalStyles } from '../../styles';
-import useForm from '../../hooks/useForm';  // Your custom useForm hook
+import useForm from '../../hooks/useForm';
+import { useDispatch, useSelector } from "react-redux";
+import { setCredentials } from '../../redux/slices/authSlice';
+import { useLoginMutation } from '../../redux/slices/authApiEndpoints';
 
 const Login = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false); // Add loading state
+  const [errors, setErrors] = useState({});
+
+  const [login, { isLoading: loginLoading }] = useLoginMutation();
 
   // Define validation rules for the form fields
   const rules = {
     email: { required: true, email: true },
-    password: { required: true, minLength: 6 }
+    password: { required: true, minLength: 4 }
   };
 
   // Use the useForm hook with initial values and validation rules
-  const { values, errors, handleChange, handleSubmit } = useForm(
+  const { values, errors: formErrors, handleChange, handleSubmit } = useForm(
     { email: '', password: '' },  // Initial values
     rules  // Validation rules
   );
 
-  const onSubmit = (formData) => {
+  const onSubmit = async (formData) => {
     setLoading(true); // Set loading to true when submitting
     console.log('Email:', formData.email);
     console.log('Password:', formData.password);
 
-    //API call or some async operation
-    setTimeout(() => {
-      setLoading(false);
-
-    }, 2000);
+    try {
+      const userData = await login({ email: formData.email, password: formData.password }).unwrap();
+      console.log(userData);
+      dispatch(setCredentials(userData)); // only pass userData from API
+      setLoading(false); // Reset loading
+    } catch (error) {
+      console.log(error);
+      const message =
+        error?.data?.message || error?.error || "Login failed. Please try again.";
+      setErrors((prev) => ({ ...prev, api: message }));
+      setLoading(false); // Reset loading
+    }
   };
 
   return (
@@ -50,7 +64,7 @@ const Login = () => {
             value={values.email}
             onChangeText={text => handleChange('email', text)}
           />
-          {errors.email && <Text style={GlobalStyles.errorText}>{errors.email}</Text>}
+          {formErrors.email && <Text style={GlobalStyles.errorText}>{formErrors.email}</Text>}
 
           <TextInput
             style={InputStyles.input}
@@ -59,7 +73,9 @@ const Login = () => {
             value={values.password}
             onChangeText={text => handleChange('password', text)}
           />
-          {errors.password && <Text style={GlobalStyles.errorText}>{errors.password}</Text>}
+          {formErrors.password && <Text style={GlobalStyles.errorText}>{formErrors.password}</Text>}
+
+          {errors.api && <Text style={GlobalStyles.errorText}>{errors.api}</Text>}
 
           <TouchableOpacity
             onPress={() => handleSubmit(onSubmit)}

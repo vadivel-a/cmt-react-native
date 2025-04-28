@@ -1,6 +1,7 @@
 export default {
   ONBOARDING: 'On Boarding',
   LOGIN: 'Login',
+  LOGOUT: 'Log Out',
   REGISTER: 'Register',
   FORGOT_PASSWORD: 'Forgot Password',
 

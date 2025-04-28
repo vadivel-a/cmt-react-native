@@ -1,9 +1,18 @@
 import React from 'react';
-import {StyleSheet, Text, SafeAreaView, TouchableOpacity} from 'react-native';
+import {Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import {COLORS, ROUTES} from '../../constants';
 import {ButtonStyles} from '../../styles';
+import { useDispatch } from 'react-redux'; // <-- Import
+import { logOut } from '../../redux/slices/authSlice'; // <-- Correct action name: logOut
 
 const Settings = ({navigation}) => {
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logOut());
+    navigation.replace(ROUTES.LOGIN);
+  };
+
   return (
     <SafeAreaView
       style={{
@@ -22,7 +31,7 @@ const Settings = ({navigation}) => {
       </TouchableOpacity>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate(ROUTES.LOGIN)}
+        onPress={handleLogout} // <-- Updated here
         style={ButtonStyles.primary}
         activeOpacity={0.8}>
         <Text style={ButtonStyles.primaryText}>Log out</Text>
