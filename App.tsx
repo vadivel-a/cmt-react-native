@@ -9,9 +9,17 @@ import { store, persistor } from './src/redux/store'; // Adjust if your path dif
 import AuthNavigator from './src/navigations/AuthNavigator';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
 
-const MainApp = () => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+// Define state type for useSelector
+interface RootState {
+  auth: {
+    isAuthenticated: boolean;
+  };
+}
+
+const MainApp: React.FC = () => {
+  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
   console.log(isAuthenticated);
+
   return (
     <NavigationContainer>
       {isAuthenticated ? <DrawerNavigator /> : <AuthNavigator />}
@@ -19,7 +27,7 @@ const MainApp = () => {
   );
 };
 
-export default function App() {
+const App: React.FC = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -28,3 +36,5 @@ export default function App() {
     </Provider>
   );
 }
+
+export default App;

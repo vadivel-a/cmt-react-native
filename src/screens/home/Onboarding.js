@@ -31,11 +31,11 @@ const Onboarding = () => {
 
   const handleNext = () => {
     if (currentSlide < slides.length - 1) {
-      const nextSlideIndex = currentSlide + 1;
-      setCurrentSlide(nextSlideIndex);
-
       if (scrollViewRef.current) {
-        scrollViewRef.current.scrollTo({ x: width * nextSlideIndex, animated: true });
+        scrollViewRef.current.scrollTo({
+          x: width * (currentSlide + 1),
+          animated: true,
+        });
       }
     } else {
       navigation.replace('Login');
@@ -45,18 +45,18 @@ const Onboarding = () => {
   return (
     <View style={styles.container}>
       <ScrollView
+        ref={scrollViewRef}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
         scrollEventThrottle={16}
-        onScroll={(e) => {
+        onMomentumScrollEnd={(e) => {
           const contentOffsetX = e.nativeEvent.contentOffset.x;
-          const index = Math.floor(contentOffsetX / width);
+          const index = Math.round(contentOffsetX / width);
           setCurrentSlide(index);
         }}
-        ref={scrollViewRef}
       >
         {slides.map((slide, index) => (
           <View key={index} style={[styles.slide, { width }]}>
@@ -67,20 +67,15 @@ const Onboarding = () => {
         ))}
       </ScrollView>
 
-      {/* Dot navigation */}
       <View style={styles.dotContainer}>
         {slides.map((_, index) => (
           <View
             key={index}
-            style={[
-              styles.dot,
-              currentSlide === index && styles.activeDot,
-            ]}
+            style={[styles.dot, currentSlide === index && styles.activeDot]}
           />
         ))}
       </View>
 
-      {/* Button to go to the next slide or finish onboarding */}
       <TouchableOpacity onPress={handleNext} style={ButtonStyles.primaryCircle}>
         <Text style={ButtonStyles.primaryCircleText}>
           {currentSlide === slides.length - 1 ? 'Get Started' : 'Next'}
