@@ -25,7 +25,7 @@ const Login = () => {
 
   // Use the useForm hook with initial values and validation rules
   const { values, errors: formErrors, handleChange, handleSubmit } = useForm(
-    { email: '', password: '' },  // Initial values
+    { email: 'admin@admin.com', password: 'Password' },  // Initial values
     rules  // Validation rules
   );
 
