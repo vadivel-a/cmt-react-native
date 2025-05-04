@@ -6,7 +6,7 @@ export default {
   FORGOT_PASSWORD: 'Forgot Password',
 
   HOME: 'Home',
-  HOME_TAB: 'Home Tab',
+  HOME_TAB: 'Home',
   HOME_DRAWER: 'Home Drawer',
 
   WALLET: 'Wallet',
@@ -17,7 +17,7 @@ export default {
 
   SETTINGS: 'Settings',
   ACCOUNT_SETTINGS: 'Account Settings',
-  SETTINGS_NAVIGATOR: 'Settings Navigator',
+  SETTINGS_NAVIGATOR: 'Settings',
 
   SETTINGS_DETAIL: 'Settings Detail',
   PROFILE: 'My Profile',

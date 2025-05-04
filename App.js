@@ -7,8 +7,7 @@ import AuthNavigator from './src/navigations/AuthNavigator';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
 
 function Main() {
-  const {isAuthenticated, user} = useSelector((state) => state.auth);
-  console.log(user);
+  const {isAuthenticated} = useSelector((state) => state.auth);
   // You can use `useSelector` here via a separate component if needed
   return (
     <NavigationContainer>

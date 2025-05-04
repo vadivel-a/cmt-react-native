@@ -2,10 +2,10 @@ import React from 'react';
 import {Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import {COLORS, ROUTES} from '../../constants';
 import {ButtonStyles} from '../../styles';
-import { useDispatch } from 'react-redux'; // <-- Import
-import { logOut } from '../../store/auth/auth.slice'; // <-- Correct action name: logOut
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../store/auth/auth.slice';
 
-const Settings = ({navigation}) => {
+const SiteSettings = ({navigation}) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -40,4 +40,4 @@ const Settings = ({navigation}) => {
   );
 };
 
-export default Settings;
+export default SiteSettings;
