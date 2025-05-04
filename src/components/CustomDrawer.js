@@ -18,6 +18,7 @@ import { COLORS, IMGS } from '../constants';
 import { API_URL } from '../constants/Config';
 import { logOut } from '../store/auth/auth.slice';
 import { ROUTES } from '../constants';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('screen');
 
@@ -34,17 +35,28 @@ const CustomDrawer = (props) => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const meta = user?.user_meta || {};
-  const avatarUrl = meta.avatar ? API_URL + meta.avatar : IMGS.user;
+
+  const avatarUrl = meta?.avatar ? API_URL + meta?.avatar : '';
 
   const handleLogout = () => {
     dispatch(logOut());
-    props.navigation.replace(ROUTES.LOGIN);
+    props.navigation.navigate('Login');
   };
 
   return (
     <DrawerContentScrollView {...props} contentContainerStyle={{ flexGrow: 1 }}>
       <ImageBackground source={IMGS.bgPattern} style={{ height: 140 }}>
-        <Image source={{ uri: avatarUrl }} style={styles.userImg} />
+        {avatarUrl ? (
+          <Image
+            source={{ uri: avatarUrl }}
+            style={styles.userImg}
+          />
+        ) : (
+          <Image
+            source={IMGS.user}
+            style={styles.userImg}
+          />
+        )}
       </ImageBackground>
 
       <View style={styles.profileCard}>

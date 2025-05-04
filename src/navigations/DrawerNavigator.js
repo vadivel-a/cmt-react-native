@@ -1,14 +1,17 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {COLORS, ROUTES} from '../constants';
-import {Wallet, Notifications} from '../screens';
+import {Wallet, Notifications, Login} from '../screens';  // Don't include Login in the drawer
 import BottomTabNavigator from './BottomTabNavigator';
 import Icon from 'react-native-vector-icons/Ionicons';
 import CustomDrawer from '../components/CustomDrawer';
+import { useSelector } from 'react-redux';  // For authentication check
 
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
+  const { isAuthenticated } = useSelector(state => state.auth);  // Check if user is authenticated
+
   return (
     <Drawer.Navigator
       drawerContent={props => <CustomDrawer {...props} />}
@@ -52,7 +55,7 @@ function DrawerNavigator() {
           ),
         }}
       />
-      
+
     </Drawer.Navigator>
   );
 }
