@@ -3,7 +3,7 @@ import {Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import {COLORS, ROUTES} from '../../constants';
 import {ButtonStyles} from '../../styles';
 import { useDispatch } from 'react-redux'; // <-- Import
-import { logOut } from '../../redux/slices/authSlice'; // <-- Correct action name: logOut
+import { logOut } from '../../store/auth/auth.slice'; // <-- Correct action name: logOut
 
 const Settings = ({navigation}) => {
   const dispatch = useDispatch();

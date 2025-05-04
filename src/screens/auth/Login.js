@@ -5,14 +5,14 @@ import Logo from '../../assets/icons/logo.svg';
 import { useNavigation } from '@react-navigation/native';
 import { ButtonStyles, InputStyles, GlobalStyles } from '../../styles';
 import useForm from '../../hooks/useForm';
-import { useDispatch, useSelector } from "react-redux";
-import { setCredentials } from '../../redux/slices/authSlice';
-import { useLoginMutation } from '../../redux/slices/authApiEndpoints';
+import { useDispatch } from 'react-redux';
+import { setCredentials } from '../../store/auth/auth.slice';
+import { useLoginMutation } from '../../store/auth/auth.api';
 
 const Login = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
   const [login, { isLoading: loginLoading }] = useLoginMutation();
@@ -20,31 +20,28 @@ const Login = () => {
   // Define validation rules for the form fields
   const rules = {
     email: { required: true, email: true },
-    password: { required: true, minLength: 4 }
+    password: { required: true, minLength: 4 },
   };
 
   // Use the useForm hook with initial values and validation rules
   const { values, errors: formErrors, handleChange, handleSubmit } = useForm(
-    { email: 'admin@admin.com', password: 'Password' },  // Initial values
-    rules  // Validation rules
+    { email: 'admin@admin.com', password: 'Password' },
+    rules
   );
 
   const onSubmit = async (formData) => {
-    setLoading(true); // Set loading to true when submitting
-    console.log('Email:', formData.email);
-    console.log('Password:', formData.password);
-
+    setLoading(true);
     try {
       const userData = await login({ email: formData.email, password: formData.password }).unwrap();
       console.log(userData);
-      dispatch(setCredentials(userData)); // only pass userData from API
-      setLoading(false); // Reset loading
+      dispatch(setCredentials(userData));
+      setLoading(false);
     } catch (error) {
       console.log(error);
       const message =
-        error?.data?.message || error?.error || "Login failed. Please try again.";
+        error?.data?.message || error?.error || 'Login failed. Please try again.';
       setErrors((prev) => ({ ...prev, api: message }));
-      setLoading(false); // Reset loading
+      setLoading(false);
     }
   };
 

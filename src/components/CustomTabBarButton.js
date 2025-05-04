@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   activeBtn: {
     flex: 1,
     position: 'absolute',
-    top: -10,
+    top: 0,
     width: 50,
     height: 50,
     borderRadius: 50 / 2,

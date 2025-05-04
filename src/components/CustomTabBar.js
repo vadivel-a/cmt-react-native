@@ -19,10 +19,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10,
     left: 10,
-    bottom: 38,
+    bottom: 0,
     height: 20,
     backgroundColor: COLORS.white,
-    borderRadius: 10,
+    borderRadius: 0,
     shadowColor: COLORS.black,
     shadowOffset: {
       width: 0,

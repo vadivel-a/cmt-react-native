@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		backgroundColor: COLORS.transparent,
 		borderTopWidth: 0,
-		bottom: 15,
+		bottom: 0,
 		right: 10,
 		left: 10,
 		height: 92,

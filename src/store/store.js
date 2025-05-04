@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { apiSlice } from '../redux/slices/apiSlice';
-import authReducer from '../slices/authSlice';
+import { myApi } from '../api/myApi';
+import authReducer from './auth/auth.slice';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { persistStore, persistReducer } from 'redux-persist';
@@ -13,13 +13,13 @@ const authPersistConfig = {
 
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
-  [apiSlice.reducerPath]: apiSlice.reducer,
+  [myApi.reducerPath]: myApi.reducer,
 });
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false }).concat(apiSlice.middleware),
+    getDefaultMiddleware({ serializableCheck: false }).concat(myApi.middleware),
   devTools: __DEV__,
 });
 
