@@ -54,7 +54,7 @@ const Register = () => {
 
       dispatch(setCredentials(userData));
       setSuccessMessage('Registration successful! Redirecting to login...');
-      setErrors({}); // clear errors
+      setErrors({});
 
       setTimeout(() => {
         navigation.replace(ROUTES.LOGIN);

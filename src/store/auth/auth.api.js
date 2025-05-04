@@ -1,4 +1,5 @@
 import { myApi } from '../../api/myApi';
+import { ForgotPassword } from '../../screens';
 
 export const authApi = myApi.injectEndpoints({
     endpoints: builder => ({
@@ -12,6 +13,13 @@ export const authApi = myApi.injectEndpoints({
         register: builder.mutation({
             query: credentials => ({
                 url: 'auth/register',
+                method: 'POST',
+                body: { ...credentials },
+            }),
+        }),
+        forgotPassword: builder.mutation({
+            query: credentials => ({
+                url: 'auth/reset',
                 method: 'POST',
                 body: { ...credentials },
             }),
@@ -35,6 +43,7 @@ export const authApi = myApi.injectEndpoints({
 export const {
     useLoginMutation,
     useRegisterMutation,
+    useForgotPasswordMutation,
     useProfileMutation,
     useProfileUpdateMutation,
 } = authApi;
