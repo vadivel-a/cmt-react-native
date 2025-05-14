@@ -25,6 +25,11 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  container_tab: {
+    padding: 20,
+    paddingBottom: 80,
+    flexGrow: 1,
+  },
 
   // Margin Right static helpers
   mr0: { marginRight: 0 },

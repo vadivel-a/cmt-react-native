@@ -6,19 +6,21 @@ export default {
   FORGOT_PASSWORD: 'Forgot Password',
 
   HOME: 'Home',
-  HOME_TAB: 'Home',
-  HOME_DRAWER: 'Home Drawer',
+  HOME_TAB: 'HomeTab',
+  HOME_DRAWER: 'HomeDrawer',
 
   WALLET: 'Wallet',
-  WALLET_DRAWER: 'Wallet Drawer',
+  WALLET_DRAWER: 'WalletDrawer',
 
   NOTIFICATIONS: 'Notifications',
-  NOTIFICATIONS_DRAWER: 'Notifications Drawer',
+  NOTIFICATIONS_DRAWER: 'NotificationsDrawer',
 
-  SETTINGS: 'Settings',
+  SETTINGS: 'SettingsMain', // This is the actual screen component
+  SETTINGS_NAVIGATOR: 'SettingsTab', // This is the stack/tab navigator
+
   ACCOUNT_SETTINGS: 'Account Settings',
-  SETTINGS_NAVIGATOR: 'Settings',
-
   SETTINGS_DETAIL: 'Settings Detail',
-  PROFILE: 'My Profile',
+
+  PROFILE: 'Profile',
+  PROFILE_UPDATE: 'ProfileUpdate',
 };

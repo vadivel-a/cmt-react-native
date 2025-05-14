@@ -55,7 +55,7 @@ function BottomTabNavigator() {
         tabBarIcon: ({ color, focused }) => {
           let iconName;
 
-          if (route.name === ROUTES.HOME_TAB) {
+          if (route.name === ROUTES.HOME) {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === ROUTES.SETTINGS_NAVIGATOR) {
             iconName = focused ? 'settings' : 'settings-outline';
@@ -70,7 +70,7 @@ function BottomTabNavigator() {
         tabBarButton: props => <MaterialTabBarButton {...props} />,
       })}>
       
-      <Tab.Screen name={ROUTES.HOME_TAB} component={Home} />
+      <Tab.Screen name={ROUTES.HOME} component={Home} />
       <Tab.Screen name={ROUTES.WALLET} component={Wallet} />
       <Tab.Screen name={ROUTES.NOTIFICATIONS} component={Notifications} />
       
@@ -79,6 +79,8 @@ function BottomTabNavigator() {
         component={SettingsNavigator}
         options={{
           headerShown: true,
+          tabBarLabel: 'Settings',
+          title: 'Settings',
           headerRight: () => (
             <TouchableOpacity onPress={() => navigation.openDrawer()}>
               <Icon

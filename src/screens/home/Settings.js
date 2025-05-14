@@ -24,10 +24,10 @@ const SiteSettings = ({navigation}) => {
       <Text>Settings</Text>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate(ROUTES.SETTINGS_DETAIL)}
+        onPress={() => navigation.navigate(ROUTES.PROFILE)}
         style={ButtonStyles.primary}
         activeOpacity={0.8}>
-        <Text style={ButtonStyles.primaryText}>Go To Settings Detail</Text>
+        <Text style={ButtonStyles.primaryText}>Go To Profile Detail</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
