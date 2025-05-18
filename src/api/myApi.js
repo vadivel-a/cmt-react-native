@@ -17,7 +17,7 @@ const baseQuery = fetchBaseQuery({
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
-
+  console.log(result);
   const state = api.getState();
   const refreshAt = state.auth.user?.refresh_at;
   const currentTime = Date.now();
