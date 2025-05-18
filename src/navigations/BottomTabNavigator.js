@@ -72,7 +72,7 @@ function BottomTabNavigator() {
       
       <Tab.Screen name={ROUTES.HOME} component={Home} />
       <Tab.Screen name={ROUTES.WALLET} component={Wallet} />
-      <Tab.Screen name={ROUTES.NOTIFICATIONS} component={Notifications} />
+      <Tab.Screen name={ROUTES.NOTIFICATIONS} component={Notifications} options={{ headerShown: true }} />
       
       <Tab.Screen
         name={ROUTES.SETTINGS_NAVIGATOR}
