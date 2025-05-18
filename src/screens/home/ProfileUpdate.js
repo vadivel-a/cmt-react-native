@@ -17,7 +17,7 @@ import { setProfile } from '../../store/auth/auth.slice';
 import { GlobalStyles, InputStyles, ButtonStyles } from '../../styles';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { useProfileUpdateMutation, useProfileMutation } from '../../store/auth/auth.api';
-import AlertModal from '../../components/AlertModal'; // ✅ new import
+import FancyToast from '../../components/FancyToast'; // import toast
 
 const ProfileUpdate = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -30,12 +30,8 @@ const ProfileUpdate = ({ navigation }) => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const [modalVisible, setModalVisible] = useState(false);
-  const [modalContent, setModalContent] = useState({
-    title: '',
-    message: '',
-    color: '#22c55e',
-  });
+  const [toastVisible, setToastVisible] = useState(false);
+  const [toastContent, setToastContent] = useState({ message: '', type: 'success' });
 
   const [form, setForm] = useState({
     user_id: user.id || '',
@@ -67,20 +63,25 @@ const ProfileUpdate = ({ navigation }) => {
         includeBase64: true,
       },
       (response) => {
-        if (response.didCancel) {
-          console.log('User cancelled image picker');
-        } else if (response.errorCode) {
-          console.error('Image Picker Error: ', response.errorMessage);
-        } else {
-          const asset = response.assets[0];
-          setAvatar({
-            uri: asset.uri,
-            base64: asset.base64,
-            fileName: asset.fileName,
-          });
+        if (response.didCancel) return;
+        if (response.errorCode) {
+          showToast('Error selecting image', 'error');
+          return;
         }
+
+        const asset = response.assets[0];
+        setAvatar({
+          uri: asset.uri,
+          base64: asset.base64,
+          fileName: asset.fileName,
+        });
       }
     );
+  };
+
+  const showToast = (message, type = 'success') => {
+    setToastContent({ message, type });
+    setToastVisible(true);
   };
 
   const handleUpdate = async () => {
@@ -95,9 +96,19 @@ const ProfileUpdate = ({ navigation }) => {
       c_password: form.c_password,
     };
 
+    // Add user_meta fields
     Object.entries(form).forEach(([key, value]) => {
       if (
-        ['age', 'address', 'job', 'city', 'state', 'country', 'postalcode', 'about'].includes(key)
+        [
+          'age',
+          'address',
+          'job',
+          'city',
+          'state',
+          'country',
+          'postalcode',
+          'about',
+        ].includes(key)
       ) {
         data[`meta_${key}`] = value;
       }
@@ -113,22 +124,12 @@ const ProfileUpdate = ({ navigation }) => {
 
       if (response?.status === 422 && response?.data) {
         setErrors(response.data);
-        setModalContent({
-          title: 'Validation',
-          message: response.message || 'Please check the fields',
-          color: '#facc15',
-        });
-        setModalVisible(true);
+        showToast(response.message || 'Validation error', 'error');
         return;
       }
 
       setErrors({});
-      setModalContent({
-        title: 'Success',
-        message: 'Profile updated successfully!',
-        color: '#22c55e',
-      });
-      setModalVisible(true);
+      showToast('Profile updated successfully!', 'success');
 
       const getProfile = await fetchProfile();
       dispatch(setProfile({ data: getProfile.data }));
@@ -136,26 +137,17 @@ const ProfileUpdate = ({ navigation }) => {
       const errData = err?.data;
       if (errData?.status === 422 && errData?.data) {
         setErrors(errData.data);
-        setModalContent({
-          title: 'Validation',
-          message: errData.message || 'Invalid input',
-          color: '#f59e0b',
-        });
+        showToast(errData.message || 'Validation failed', 'error');
       } else {
-        setModalContent({
-          title: 'Error',
-          message: errData?.message || 'Failed to update profile',
-          color: '#ef4444',
-        });
+        showToast(errData?.message || 'Update failed', 'error');
       }
-      setModalVisible(true);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <SafeAreaView style={GlobalStyles.wFull}>
+    <SafeAreaView style={[GlobalStyles.wFull]}>
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={GlobalStyles.h3}>Update Profile</Text>
 
@@ -213,13 +205,11 @@ const ProfileUpdate = ({ navigation }) => {
         </TouchableOpacity>
       </ScrollView>
 
-      {/* ✅ Modal */}
-      <AlertModal
-        visible={modalVisible}
-        onClose={() => setModalVisible(false)}
-        title={modalContent.title}
-        message={modalContent.message}
-        color={modalContent.color}
+      <FancyToast
+        visible={toastVisible}
+        message={toastContent.message}
+        type={toastContent.type}
+        onClose={() => setToastVisible(false)}
       />
     </SafeAreaView>
   );
