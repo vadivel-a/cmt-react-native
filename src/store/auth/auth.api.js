@@ -19,7 +19,7 @@ export const authApi = myApi.injectEndpoints({
         }),
         forgotPassword: builder.mutation({
             query: credentials => ({
-                url: 'auth/reset',
+                url: 'auth/forgot-password',
                 method: 'POST',
                 body: { ...credentials },
             }),
@@ -37,6 +37,19 @@ export const authApi = myApi.injectEndpoints({
                 body: { ...data },
             }),
         }),
+        resetPassword: builder.mutation({
+            query: data => ({
+                url: 'auth/reset-password',
+                method: 'POST',
+                body: { ...data }, // expect { token, email, password, password_confirmation }
+            }),
+        }),
+        getResetPasswordLink: builder.query({
+            query: ({ token, email }) => ({
+                url: `reset-password/${token}?email=${encodeURIComponent(email)}`,
+                method: 'GET',
+            }),
+        }),
     }),
 });
 
@@ -46,4 +59,6 @@ export const {
     useForgotPasswordMutation,
     useProfileMutation,
     useProfileUpdateMutation,
+    useResetPasswordMutation,
+    useGetResetPasswordLinkQuery,
 } = authApi;

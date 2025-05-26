@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, SafeAreaView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { COLORS, ROUTES } from '../../constants';
-import Logo from '../../assets/icons/logo.svg';
+import Logo from '../../assets/icons/LOGO.svg';
 import { useNavigation } from '@react-navigation/native';
 import { ButtonStyles, InputStyles, GlobalStyles } from '../../styles';
 import useForm from '../../hooks/useForm';
@@ -33,7 +33,6 @@ const Login = () => {
     setLoading(true);
     try {
       const userData = await login({ email: formData.email, password: formData.password }).unwrap();
-      console.log(userData);
       dispatch(setCredentials(userData));
       setLoading(false);
     } catch (error) {

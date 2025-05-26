@@ -11,7 +11,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, ROUTES } from '../../constants';
 import { ButtonStyles, InputStyles, GlobalStyles } from '../../styles';
-import Logo from '../../assets/icons/logo.svg';
+import Logo from '../../assets/icons/LOGO.svg';
 import useForm from '../../hooks/useForm';
 // import your API hook
 import { useForgotPasswordMutation } from '../../store/auth/auth.api';
@@ -34,6 +34,7 @@ const ForgotPassword = () => {
   const onSubmit = async (formData) => {
     try {
       const response = await forgotPassword({ email: formData.email }).unwrap();
+      console.log(response);
       setSuccessMessage(response?.message || 'Reset link sent to your email.');
       setErrors({});
     } catch (error) {

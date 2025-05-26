@@ -1,1 +1,0 @@
-/Users/vadivel/Sites/react-native/cmt-react-native/android/app/build/intermediates/cxx/RelWithDebInfo/5rw11dp3/obj/x86

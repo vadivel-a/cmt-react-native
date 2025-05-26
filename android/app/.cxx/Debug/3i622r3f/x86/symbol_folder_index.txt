@@ -1,1 +1,0 @@
-/Users/vadivel/Sites/react-native/cmt-react-native/android/app/build/intermediates/cxx/Debug/3i622r3f/obj/x86

@@ -9,7 +9,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { COLORS, ROUTES } from '../../constants';
-import Logo from '../../assets/icons/logo.svg';
+import Logo from '../../assets/icons/LOGO.svg';
 import { useNavigation } from '@react-navigation/native';
 import { ButtonStyles, InputStyles, GlobalStyles } from '../../styles';
 import useForm from '../../hooks/useForm';
