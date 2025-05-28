@@ -35,6 +35,7 @@ const Login = () => {
       const userData = await login({ email: formData.email, password: formData.password }).unwrap();
       dispatch(setCredentials(userData));
       setLoading(false);
+      console.log(userData);
     } catch (error) {
       console.log(error);
       const message =

@@ -4,7 +4,8 @@ import { store, persistor } from './src/store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from './src/navigations/RootNavigator.js';
-import { ForgotPassword } from './src/screens';
+import { ForgotPassword, Login } from './src/screens';
+import { Linking } from 'react-native';
 
 const linking = {
   prefixes: [
@@ -14,8 +15,9 @@ const linking = {
   config: {
     screens: {
       Home: '',
+      Login: 'login',
+      ResetPassword: 'reset-password',
       ForgotPassword: 'forgot-password',
-      // Add other routes
     },
   },
 };

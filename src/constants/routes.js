@@ -3,7 +3,8 @@ export default {
   LOGIN: 'Login',
   LOGOUT: 'Log Out',
   REGISTER: 'Register',
-  FORGOT_PASSWORD: 'Forgot Password',
+  FORGOT_PASSWORD: 'ForgotPassword',
+  RESET_PASSWORD: 'ResetPassword',
 
   HOME: 'Home',
   HOME_TAB: 'HomeTab',
